@@ -1,5 +1,9 @@
 document.addEventListener("DOMContentLoaded", ready);
 var precision = 100; // точность. 100 - сотые, 1000 – тысячные и т.д.
+var diff = -1000; // разность межды реальным значением бегунка и отображаемым
+var linkDiv = 5000; // если бегунок <= этого значения – firstLink, если больше – secondLink
+var firstLink = 'http://testlink.org';
+var secondLink = 'http://test.com';
 
 function ready() {
 	var range = document.getElementById('range');
@@ -12,7 +16,7 @@ function ready() {
 
 function rangeChange(labels,mainButton) {
 	changeRangeColor(this);
-	updateLabelsClass(labels,parseInt(this.value),this.max);
+	updateLabelsClass(labels,parseInt(this.value),parseInt(this.max));
 	updateButtonDisplay(this.value,mainButton);
 }
 
@@ -23,14 +27,14 @@ function changeRangeColor(rangeObj) {
 
 function makeLabels(labels, max) {
 	for (var i = labels.length - 1; i >= 0; i--) {
-		labels[i].style.left = Math.round(labels[i].getAttribute('value')/max*100*precision)/precision+"%";
+		labels[i].style.left = Math.round((labels[i].getAttribute('value'))/max*100*precision)/precision-diff/max*100+"%";
 	}
 }
 
 function updateLabelsClass(labels, value, max) {
 	var temp = -(value/(max)-0.5)*400; // исправление бага праузерского бегунка
 	for (var i = labels.length - 1; i >= 0; i--) {
-		if (labels[i].getAttribute('value') <= value+temp) {
+		if (labels[i].getAttribute('value') <= value+temp+diff) {
 			if (!labels[i].classList.contains('less')) {
 				labels[i].classList.add('less');
 			}
@@ -44,7 +48,7 @@ function updateLabelsClass(labels, value, max) {
 }
 
 function updateButtonDisplay(priceVal, mainButton) {
-	if (priceVal >= 600) {
+	if (priceVal >= 600-diff) {
 		mainButton.style.display = 'initial';
 	}
 	else {
@@ -53,10 +57,10 @@ function updateButtonDisplay(priceVal, mainButton) {
 }
 
 function mainButtonClick() {
-	if (this.value < 5000) {
-		document.location.href = 'http://testlink.org';
+	if (this.value <= 5000-diff) {
+		document.location.href = firstLink;
 	}
 	else {
-		document.location.href = 'http://test.com';
+		document.location.href = secondLink;
 	}
 }

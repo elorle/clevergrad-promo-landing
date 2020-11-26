@@ -17,6 +17,10 @@ body {
 	text-transform: uppercase;
 }
 
+.notMob {
+	display: none;
+}
+
 #content {
 	position: absolute;
 	top: 30%;
@@ -115,6 +119,10 @@ body {
 @media (min-width:40.063rem) { /* >640px, portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
 	body {
 		/*background: #222;*/
+	}
+
+	.notMob {
+		display: block;
 	}
 
 	#content {
