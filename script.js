@@ -35,48 +35,25 @@ function changeRangeColor(rangeObj) {
 	var rat8000 = Math.round((8000-diff)/(rangeObj.max-rangeObj.min)*100*precision)/precision;
 	var rat12000 = Math.round((12000-diff)/(rangeObj.max-rangeObj.min)*100*precision)/precision;
 	var rat17000 = Math.round((17000-diff)/(rangeObj.max-rangeObj.min)*100*precision)/precision;
+	console.log(rat720,rat4000,rat8000,rat12000,rat17000);
 	if (rangeObj.value < 720-diff) {
 		rangeObj.style.background = 'linear-gradient(to right, #aaa 0%, #aaa '+ratio+'%, #fff '+ratio+'%, #fff 100%)';
-	}
-	else if (rangeObj.value < 4000-diff) {
-		rangeObj.style.background = 'linear-gradient(to right, '+
-			'#aaa 0%, #aaa '+rat720+'%, '+
-			'#f00 '+rat720+'%, #f00 '+ratio+'%, '+
-			'#fff '+ratio+'%, #fff 100%)';
-	}
-	else if (rangeObj.value < 8000-diff) {
-		rangeObj.style.background = 'linear-gradient(to right, '+
-			'#aaa 0%, #aaa '+rat720+'%, '+
-			'#f00 '+rat720+'%, #f00 '+rat4000+'%, '+
-			'#ff0 '+rat4000+'%, #ff0 '+ratio+'%, '+
-			'#fff '+ratio+'%, #fff 100%)';
-	}
-	else if (rangeObj.value < 12000-diff) {
-		rangeObj.style.background = 'linear-gradient(to right, '+
-			'#aaa 0%, #aaa '+rat720+'%, '+
-			'#f00 '+rat720+'%, #f00 '+rat4000+'%, '+
-			'#ff0 '+rat4000+'%, #ff0 '+rat8000+'%, '+
-			'#f0f '+rat8000+'%, #f0f '+ratio+'%, '+
-			'#fff '+ratio+'%, #fff 100%)';
+		rangeObj.style.setProperty('--slider-color', "#919191");
 	}
 	else if (rangeObj.value < 17000-diff) {
 		rangeObj.style.background = 'linear-gradient(to right, '+
 			'#aaa 0%, #aaa '+rat720+'%, '+
-			'#f00 '+rat720+'%, #f00 '+rat4000+'%, '+
-			'#ff0 '+rat4000+'%, #ff0 '+rat8000+'%, '+
-			'#f0f '+rat8000+'%, #f0f '+rat12000+'%, '+
-			'#0ff '+rat12000+'%, #0ff '+ratio+'%, '+
+			'#00b160 '+rat720+'%, #00b160 '+ratio+'%, '+
 			'#fff '+ratio+'%, #fff 100%)';
+		rangeObj.style.setProperty('--slider-color', "#008c4c");
 	}
 	else {
 		rangeObj.style.background = 'linear-gradient(to right, '+
 			'#aaa 0%, #aaa '+rat720+'%, '+
-			'#f00 '+rat720+'%, #f00 '+rat4000+'%, '+
-			'#ff0 '+rat4000+'%, #ff0 '+rat8000+'%, '+
-			'#f0f '+rat8000+'%, #f0f '+rat12000+'%, '+
-			'#0ff '+rat12000+'%, #0ff '+rat17000+'%, '+
-			'#0f0 '+rat17000+'%, #0f0 '+ratio+'%, '+
+			'#00b160 '+rat720+'%, #00b160 '+rat17000+'%, '+
+			'#fc0078 '+rat17000+'%, #fc0078 '+ratio+'%, '+
 			'#fff '+ratio+'%, #fff 100%)';
+		rangeObj.style.setProperty('--slider-color', "#bf005b");
 	}
 }
 
