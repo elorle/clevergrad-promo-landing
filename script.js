@@ -31,11 +31,7 @@ function rangeChange(labels,mainButton) {
 function changeRangeColor(rangeObj) {
 	var ratio = Math.round(rangeObj.value/(rangeObj.max-rangeObj.min)*100*precision)/precision;
 	var rat720 = Math.round((720-diff)/(rangeObj.max-rangeObj.min)*100*precision)/precision;
-	var rat4000 = Math.round((4000-diff)/(rangeObj.max-rangeObj.min)*100*precision)/precision;
-	var rat8000 = Math.round((8000-diff)/(rangeObj.max-rangeObj.min)*100*precision)/precision;
-	var rat12000 = Math.round((12000-diff)/(rangeObj.max-rangeObj.min)*100*precision)/precision;
 	var rat17000 = Math.round((17000-diff)/(rangeObj.max-rangeObj.min)*100*precision)/precision;
-	console.log(rat720,rat4000,rat8000,rat12000,rat17000);
 	if (rangeObj.value < 720-diff) {
 		rangeObj.style.background = 'linear-gradient(to right, #aaa 0%, #aaa '+ratio+'%, #fff '+ratio+'%, #fff 100%)';
 		rangeObj.style.setProperty('--slider-color', "#919191");
