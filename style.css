@@ -27,12 +27,12 @@ body {
 	top: calc(50% - 6em);
 	left: 50%;
 	transform: translate(-50%, -50%);
-	width: calc(90% - 2em);
+	width: 80%;
 	text-align: center;
 }
 
 #content h1 {
-	font-size: 110%;
+	font-size: 5.7vw;
 	font-weight: 700;
 }
 
@@ -263,64 +263,24 @@ input:focus{
 	width: 100%;
 }
 
-@media (min-width:23.063rem) { /* >=iPhone 8 */
-	#content h1 {
-		font-size: 140%;
-	}
-}
-
 @media (min-width:25.063rem) { /* >=iPhone 8 plus */
-	#content h1 {
-		font-size: 150%;
-	}
 	.notMob {
 		display: initial;
 	}
 }
 
-@media (min-width:30.063rem) and (max-height:25.063rem) { /* >landscape iPhones */ 
-	/*#content {
-		top: 1em;
-	}
-
-	#moreInfoButton {
-		top: 1em;
-		bottom: initial;
-		border-radius: 3em;
-		padding: 1em;
-	}
-
-	#moreInfoButton img {
-		height: 2.5em;
-	}*/
-}
-
-@media (min-width:40.063rem) { /* >640px, portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
-	#content h1 {
-		font-size: 250%;
-	}
-}
-
-@media (min-width:50.063rem) { /* >640px, portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
-	#content h1 {
-		font-size: 300%;
-	}
-}
-
 @media (min-width:62.063rem) { /* >960px, tablet, landscape iPad, lo-res laptops ands desktops */
 	#content {
-		width: calc(70% - 2em);
+		width: 70%;
+	}
+
+	#content h1 {
+		font-size: 5.1vw;
 	}
 
 	#content button {
 		font-size: 140%;
 		margin-bottom: -8em;
 		width: initial;
-	}
-}
-
-@media (min-width:80.063rem) {
-	#content h1 {
-		font-size: 400%;
 	}
 }
