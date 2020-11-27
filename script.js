@@ -3,7 +3,7 @@ var precision = 100; // точность. 100 - сотые, 1000 – тысяч�
 var diff = -3000; // разность межды реальным значением бегунка и отображаемым
 var linkDiv = 17000; // если бегунок <= этого значения – firstLink, если больше – secondLink
 var firstLink = 'https://clevergrad.ru/poisk-poselkov.html';
-var secondLink = 'http://test.com';
+var secondLink = 'https://cleverpremium.ru/catalog/';
 
 function ready() {
 	var range = document.getElementById('range');
@@ -156,7 +156,7 @@ function movePriceSlider(pos,max,priceSliderDiv,priceSliderText) {
 		}
 		priceSliderDiv.style.left = Math.round(pos/max*100*precision+temp)/precision+"%";
 		if (pos+diff < 720) {
-			priceSliderText.innerHTML = "<720 тыс";
+			priceSliderText.innerHTML = "< 720 тыс";
 		}
 		else if (pos+diff < 1000) {
 			priceSliderText.innerHTML = (pos+diff)+" тыс";
@@ -165,7 +165,7 @@ function movePriceSlider(pos,max,priceSliderDiv,priceSliderText) {
 			priceSliderText.innerHTML = (pos+diff)/1000+" млн";
 		}
 		else {
-			priceSliderText.innerHTML = ">17 млн";
+			priceSliderText.innerHTML = "> 17 млн";
 		}
 	}
 	else {
