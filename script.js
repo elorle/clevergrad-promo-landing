@@ -65,7 +65,7 @@ function updateButtonDisplay(priceVal, mainButton) {
 }
 
 function mainButtonClick() {
-	if (this.value <= 5000-diff) {
+	if (this.value <= linkDiv-diff) {
 		document.location.href = firstLink;
 	}
 	else {
