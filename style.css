@@ -116,9 +116,89 @@ body {
 	transform: translate(-50%, 0%);
 }
 
+#moreInfo {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: #000;
+	left: 0;
+	top: 0;
+}
+
+#close {
+	position: absolute;
+	right: 0.5em;
+	top: 0.5em;
+	font-size: 200%;
+	transition: all 0.5s ease-in-out;
+}
+
+#close:hover {
+	color: red;
+	cursor: pointer;
+	transform: rotate(360deg);
+}
+
+form {
+	position: absolute;
+	width: 80%;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+}
+
+input[type=text] {
+	border: none;
+	background: none;
+	border-bottom: 1px solid #ccc;
+	font-size: 1.5em;
+}
+
+#moreInfo input,
+#moreInfo button,
+#moreInfo label {
+	margin-top: 2em;
+	padding: 0.5em 1em;
+	box-sizing: border-box;
+}
+
+input:focus{
+    outline: none;
+}
+
+#moreInfo label {
+	padding-left: 0.25em;
+	font-style: italic;
+	color: #ddd;
+	text-transform: lowercase;
+}
+
+#moreInfo button {
+	padding: 1em;
+	background: green;
+	border: 0;
+	border-radius: 1em;
+	font-size: 1.25em;
+	transition: background 0.5s ease-in-out;
+}
+
+#moreInfo button:hover {
+	cursor: pointer;
+	background: rgb(40, 117, 180);
+}
+
+#moreInfo input[type=text],
+#moreInfo button {
+	width: 100%;
+}
+
 @media (min-width:40.063rem) { /* >640px, portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
 	body {
 		/*background: #222;*/
+	}
+
+	form {
+		width: 50%;
 	}
 
 	.notMob {
