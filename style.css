@@ -36,6 +36,10 @@ body {
 	font-weight: 700;
 }
 
+#content h1 span {
+	color: #fc0078;
+}
+
 #content button {
 	display: none;
 	font-size: 110%;
