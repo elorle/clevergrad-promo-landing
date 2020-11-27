@@ -283,4 +283,8 @@ input:focus{
 		margin-bottom: -8em;
 		width: initial;
 	}
+
+	#triangle {
+		margin: 6px 0;
+	}
 }
