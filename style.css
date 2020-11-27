@@ -125,17 +125,16 @@ body {
  	transition: background 450ms ease-in;
  	-webkit-appearance: none;
  	position: relative;
- 	--slider-color: #919191;
+ 	--slider-color: #654321;
 }
 
 #range::-webkit-slider-thumb {
 	-webkit-appearance: none !important;
-	background-color: #919191;
+	background-color: #654321;
 	background-color: var(--slider-color);
-	border: none;
 	border-radius: 2px;
-	height: 2em;
-	width: 2em;
+	height: 3em;
+	width: 3em;
 }
 
 #labels {
@@ -284,6 +283,6 @@ input:focus{
 	}
 
 	#triangle {
-		margin: 6px 0;
+		margin: 6px 0 8px 0;
 	}
 }

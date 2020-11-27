@@ -37,7 +37,7 @@ function changeRangeColor(rangeObj) {
 	var rat17000 = Math.round((17000-diff)/(rangeObj.max-rangeObj.min)*100*precision)/precision;
 	if (rangeObj.value < 720-diff) {
 		rangeObj.style.background = 'linear-gradient(to right, #aaa 0%, #aaa '+ratio+'%, #fff '+ratio+'%, #fff 100%)';
-		rangeObj.style.setProperty('--slider-color', "#919191");
+		rangeObj.style.setProperty('--slider-color', "#654321");
 	}
 	else if (rangeObj.value < 17000-diff) {
 		rangeObj.style.background = 'linear-gradient(to right, '+
