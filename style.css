@@ -34,8 +34,10 @@ body {
 
 #content {
 	position: absolute;
-	top: 30%;
-	width: calc(100% - 2em);
+	top: 15%;
+	left: 50%;
+	transform: translate(-50%, 0%);
+	width: calc(90% - 2em);
 	text-align: center;
 }
 
@@ -46,6 +48,11 @@ body {
 	border-radius: 0.1em;
 	padding: 0.5em;
 	border: none;
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%, 0%);
+	top: 14em;
+	width: 100%;
 }
 
 #content button:hover {
@@ -82,9 +89,9 @@ body {
 }
 
 #rangeContainer {
-	width: calc(100% - 2em);
-	position: absolute;
-	bottom: 4em;
+	width: 100%;
+	position: relative;
+	top: 1em;
 }
 
 #range {
@@ -135,6 +142,7 @@ body {
 .signature {
 	position: absolute;
 	transform: translate(-50%, 0%);
+	left: 0;
 }
 
 #moreInfo {
@@ -201,7 +209,7 @@ input:focus{
 	padding: 1em;
 	background: #00b160;
 	border: 0;
-	border-radius: 1em;
+	border-radius: 0.1em;
 	font-size: 1.25em;
 	transition: background 0.5s ease-in-out;
 }
@@ -214,6 +222,16 @@ input:focus{
 #moreInfo input[type=text],
 #moreInfo button {
 	width: 100%;
+}
+
+@media (min-width:23.063rem) { /* >= iPhone 8 */
+	#content {
+		top: 25%;
+	}
+
+	#content button {
+		top: 13em;
+	}
 }
 
 @media (min-width:40.063rem) { /* >640px, portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
@@ -232,6 +250,11 @@ input:focus{
 	#content {
 		position: absolute;
 		top: 20%;
+		width: calc(90% - 2em);
+	}
+
+	#content button {
+		width: initial;
 	}
 }
 
