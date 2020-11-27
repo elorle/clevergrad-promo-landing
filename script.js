@@ -30,7 +30,54 @@ function rangeChange(labels,mainButton) {
 
 function changeRangeColor(rangeObj) {
 	var ratio = Math.round(rangeObj.value/(rangeObj.max-rangeObj.min)*100*precision)/precision;
-	rangeObj.style.background = 'linear-gradient(to right, #aaa 0%, #aaa '+ratio+'%, #fff '+ratio+'%, #fff 100%)';
+	var rat720 = Math.round((720-diff)/(rangeObj.max-rangeObj.min)*100*precision)/precision;
+	var rat4000 = Math.round((4000-diff)/(rangeObj.max-rangeObj.min)*100*precision)/precision;
+	var rat8000 = Math.round((8000-diff)/(rangeObj.max-rangeObj.min)*100*precision)/precision;
+	var rat12000 = Math.round((12000-diff)/(rangeObj.max-rangeObj.min)*100*precision)/precision;
+	var rat17000 = Math.round((17000-diff)/(rangeObj.max-rangeObj.min)*100*precision)/precision;
+	if (rangeObj.value < 720-diff) {
+		rangeObj.style.background = 'linear-gradient(to right, #aaa 0%, #aaa '+ratio+'%, #fff '+ratio+'%, #fff 100%)';
+	}
+	else if (rangeObj.value < 4000-diff) {
+		rangeObj.style.background = 'linear-gradient(to right, '+
+			'#aaa 0%, #aaa '+rat720+'%, '+
+			'#f00 '+rat720+'%, #f00 '+ratio+'%, '+
+			'#fff '+ratio+'%, #fff 100%)';
+	}
+	else if (rangeObj.value < 8000-diff) {
+		rangeObj.style.background = 'linear-gradient(to right, '+
+			'#aaa 0%, #aaa '+rat720+'%, '+
+			'#f00 '+rat720+'%, #f00 '+rat4000+'%, '+
+			'#ff0 '+rat4000+'%, #ff0 '+ratio+'%, '+
+			'#fff '+ratio+'%, #fff 100%)';
+	}
+	else if (rangeObj.value < 12000-diff) {
+		rangeObj.style.background = 'linear-gradient(to right, '+
+			'#aaa 0%, #aaa '+rat720+'%, '+
+			'#f00 '+rat720+'%, #f00 '+rat4000+'%, '+
+			'#ff0 '+rat4000+'%, #ff0 '+rat8000+'%, '+
+			'#f0f '+rat8000+'%, #f0f '+ratio+'%, '+
+			'#fff '+ratio+'%, #fff 100%)';
+	}
+	else if (rangeObj.value < 17000-diff) {
+		rangeObj.style.background = 'linear-gradient(to right, '+
+			'#aaa 0%, #aaa '+rat720+'%, '+
+			'#f00 '+rat720+'%, #f00 '+rat4000+'%, '+
+			'#ff0 '+rat4000+'%, #ff0 '+rat8000+'%, '+
+			'#f0f '+rat8000+'%, #f0f '+rat12000+'%, '+
+			'#0ff '+rat12000+'%, #0ff '+ratio+'%, '+
+			'#fff '+ratio+'%, #fff 100%)';
+	}
+	else {
+		rangeObj.style.background = 'linear-gradient(to right, '+
+			'#aaa 0%, #aaa '+rat720+'%, '+
+			'#f00 '+rat720+'%, #f00 '+rat4000+'%, '+
+			'#ff0 '+rat4000+'%, #ff0 '+rat8000+'%, '+
+			'#f0f '+rat8000+'%, #f0f '+rat12000+'%, '+
+			'#0ff '+rat12000+'%, #0ff '+rat17000+'%, '+
+			'#0f0 '+rat17000+'%, #0f0 '+ratio+'%, '+
+			'#fff '+ratio+'%, #fff 100%)';
+	}
 }
 
 function makeLabels(labels, max) {
