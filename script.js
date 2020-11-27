@@ -12,6 +12,12 @@ function ready() {
 	makeLabels(labels,range.max);
 	range.oninput = rangeChange.bind(range,labels,mainButton);
 	mainButton.onclick = mainButtonClick.bind(range);
+
+	var moreInfoBlock = document.getElementById('moreInfo');
+	var callMeButton = document.getElementById('moreInfoButton');
+	var closeButton = document.getElementById('close');
+	callMeButton.onclick = callMeButtonClick.bind(moreInfoBlock);
+	closeButton.onclick = closeButtonClick.bind(moreInfoBlock);
 }
 
 function rangeChange(labels,mainButton) {
@@ -63,4 +69,18 @@ function mainButtonClick() {
 	else {
 		document.location.href = secondLink;
 	}
+}
+
+function callMeButtonClick() {
+	this.style.display = 'block';
+	setTimeout(function() {
+		this.style.opacity = '1';
+	}.bind(this), 100);
+}
+
+function closeButtonClick() {
+	this.style.opacity = '0';
+	setTimeout(function() {
+		this.style.display = 'none';
+	}.bind(this), 500);
 }
