@@ -14,10 +14,12 @@ function ready() {
 	mainButton.onclick = mainButtonClick.bind(range);
 
 	var moreInfoBlock = document.getElementById('moreInfo');
+	var form = moreInfoBlock.getElementsByTagName('form')[0];
 	var callMeButton = document.getElementById('moreInfoButton');
 	var closeButton = document.getElementById('close');
 	callMeButton.onclick = callMeButtonClick.bind(moreInfoBlock);
 	closeButton.onclick = closeButtonClick.bind(moreInfoBlock);
+	form.onsubmit = submitForm.bind(form);
 }
 
 function rangeChange(labels,mainButton) {
@@ -83,4 +85,42 @@ function closeButtonClick() {
 	setTimeout(function() {
 		this.style.display = 'none';
 	}.bind(this), 500);
+}
+
+function submitForm() {
+	var inputs = this.getElementsByTagName('input');
+	var name,phone,allow;
+	name = inputs[0].value;
+	phone = inputs[1].value;
+	allow = inputs[2];
+	if (name == '') {
+		alert('Пожалуйста, представьтесь!');
+		return false;
+	}
+	if (phone == '') {
+		alert('Пожалуйста, введите номер телефона!');
+		return false;
+	}
+	if (!allow.checked) {
+		alert('Пожалуйста, согласитесь на обработку данных. Обещаем, Ваши данные НЕ будут переданы третьим лицам!');
+		return false;
+	}
+	var xhr = new XMLHttpRequest();
+
+	var body = 'name=' + encodeURIComponent(name) + '&phone=' + encodeURIComponent(phone);
+
+	xhr.open("POST", '/mail.php', true);
+	xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+	xhr.send(body);
+
+    xhr.onload = function() {
+    	if (xhr.responseText == 'success') {
+    		alert("Заявка успешно отправлена, мы в ближайшее время свяжемся с Вами!");
+    	}
+    	else {
+    		alert("К сожалению, произошла ошибка на сервере :( Вы можете связаться с нами по номеру: +78124216869");
+    	}
+    };
+	return false;
 }
