@@ -295,10 +295,8 @@ input:focus{
 
 	#content button {
 		font-size: 140%;
-	}
-
-	#content button {
 		margin-bottom: -8em;
+		width: initial;
 	}
 
 /*	#moreInfoButton {
