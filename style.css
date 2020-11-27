@@ -24,19 +24,16 @@ body {
 
 #content {
 	position: absolute;
-	top: 15%;
+	top: calc(50% - 6em);
 	left: 50%;
-	transform: translate(-50%, 0%);
+	transform: translate(-50%, -50%);
 	width: calc(90% - 2em);
 	text-align: center;
 }
 
-#logo {
-	width: 4em;
-}
-
 #content h1 {
 	font-size: 150%;
+	font-weight: 700;
 }
 
 #content button {
@@ -46,8 +43,11 @@ body {
 	border-radius: 0.1em;
 	padding: 0.5em;
 	border: none;
-	position: relative;
-	top: 5em;
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%,0);
+	bottom: 0;
+	margin-bottom: -9em;
 	width: 100%;
 }
 
@@ -93,8 +93,8 @@ body {
 #range {
 	width: 100%;
  	background: #fff;
- 	border-radius: 8px;
- 	height: 8px;
+ 	border-radius: 2px;
+ 	height: 2em;
  	outline: none;
  	transition: background 450ms ease-in;
  	-webkit-appearance: none;
@@ -104,16 +104,16 @@ body {
 #range::-webkit-slider-thumb {
 	-webkit-appearance: none !important;
 	background-color: #E9E9E9;
-	border: 1px solid #CECECE;
-	border-radius: 2em;
+	border: none;
+	border-radius: 2px;
 	height: 2em;
 	width: 2em;
 }
 
 #labels {
-	position: absolute;
+	position: relative;
 	width: 100%;
-	bottom: 1em;
+	top: 1em;
 }
 
 .label {
@@ -131,6 +131,19 @@ body {
 	height: 3em;
 }
 
+.label.intermediate {
+	opacity: 0.5;
+}
+
+.label.intermediate .line {
+	/*border: none;*/
+	height: 2em;
+}
+
+.label.nosign .line {
+	height: 1.35em;
+}
+
 .label.less .line {
 	border-left: 2px solid #aaa;
 }
@@ -139,6 +152,7 @@ body {
 	position: absolute;
 	transform: translate(-50%, 0%);
 	left: 0;
+	text-transform: lowercase;
 }
 
 #moreInfo {
@@ -221,17 +235,17 @@ input:focus{
 }
 
 @media (min-width:23.063rem) { /* >=iPhone 8 */
-	#content h1 {
+	/*#content h1 {
 		font-size: 200%;
 	}
 
 	#content button {
 		font-size: 120%;
-	}
+	}*/
 }
 
 @media (min-width:30.063rem) and (max-height:25.063rem) { /* >landscape iPhones */ 
-	#content {
+	/*#content {
 		top: 1em;
 	}
 
@@ -244,59 +258,53 @@ input:focus{
 
 	#moreInfoButton img {
 		height: 2.5em;
-	}
+	}*/
 }
 
 @media (min-width:40.063rem) { /* >640px, portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
-	body {
-		/*background: #222;*/
-	}
-
-	form {
+	/*form {
 		width: 50%;
 	}
 
 	#content {
 		position: absolute;
 		top: 20%;
-		width: calc(90% - 2em);
 	}
+
 	#content button {
 		width: initial;
-	}
-}
-
-@media (min-width:40.063rem) and (min-height:40.063rem) {
-	#logo {
-		width: initial;
-	}
+	}*/
 }
 
 @media (min-width:60.063rem) { /* >960px, tablet, landscape iPad, lo-res laptops ands desktops */ 
-	body {
-		/*background: #444;*/
+	.notMob {
+		display: initial;
+	}
+
+	#content {
+		width: calc(70% - 2em);
 	}
 
 	#content h1 {
 		font-size: 400%;
 	}
 
-	#logo {
-		width: initial;
-	}
-
 	#content button {
 		font-size: 140%;
 	}
 
-	#moreInfoButton {
+	#content button {
+		margin-bottom: -8em;
+	}
+
+/*	#moreInfoButton {
 		top: initial;
 		bottom: 1em;
 		border-radius: 4em;
 		padding: 1.5em;
-	}
+	}*/
 
-	#moreInfoButton img {
+/*	#moreInfoButton img {
 		height: 3.5em;
-	}
+	}*/
 }
