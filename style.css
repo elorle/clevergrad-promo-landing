@@ -41,17 +41,23 @@ body {
 	text-align: center;
 }
 
+#logo {
+	width: 4em;
+}
+
+#content h1 {
+	font-size: 150%;
+}
+
 #content button {
 	display: none;
-	font-size: 120%;
+	font-size: 110%;
 	background: #00b160;
 	border-radius: 0.1em;
 	padding: 0.5em;
 	border: none;
-	position: absolute;
-	left: 50%;
-	transform: translate(-50%, 0%);
-	top: 14em;
+	position: relative;
+	top: 5em;
 	width: 100%;
 }
 
@@ -224,13 +230,30 @@ input:focus{
 	width: 100%;
 }
 
-@media (min-width:23.063rem) { /* >= iPhone 8 */
-	#content {
-		top: 25%;
+@media (min-width:23.063rem) { /* >=iPhone 8 */
+	#content h1 {
+		font-size: 200%;
 	}
 
 	#content button {
-		top: 13em;
+		font-size: 120%;
+	}
+}
+
+@media (min-width:30.063rem) and (max-height:25.063rem) { /* >landscape iPhones */ 
+	#content {
+		top: 1em;
+	}
+
+	#moreInfoButton {
+		top: 1em;
+		bottom: initial;
+		border-radius: 3em;
+		padding: 1em;
+	}
+
+	#moreInfoButton img {
+		height: 2.5em;
 	}
 }
 
@@ -243,17 +266,18 @@ input:focus{
 		width: 50%;
 	}
 
-	.notMob {
-		display: block;
-	}
-
 	#content {
 		position: absolute;
 		top: 20%;
 		width: calc(90% - 2em);
 	}
-
 	#content button {
+		width: initial;
+	}
+}
+
+@media (min-width:40.063rem) and (min-height:40.063rem) {
+	#logo {
 		width: initial;
 	}
 }
@@ -263,11 +287,26 @@ input:focus{
 		/*background: #444;*/
 	}
 
-	h1 {
+	#content h1 {
 		font-size: 400%;
+	}
+
+	#logo {
+		width: initial;
 	}
 
 	#content button {
 		font-size: 140%;
+	}
+
+	#moreInfoButton {
+		top: initial;
+		bottom: 1em;
+		border-radius: 4em;
+		padding: 1.5em;
+	}
+
+	#moreInfoButton img {
+		height: 3.5em;
 	}
 }
