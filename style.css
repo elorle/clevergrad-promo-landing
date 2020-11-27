@@ -12,20 +12,10 @@ body {
 	padding: 1em;
 }
 
-@font-face {
-	font-family: "AvenirNextW10"; 
-	src: url("fonts/34b75a9eafbdc85526bcdf9cbc9ad211.eot"); 
-	src: url("fonts/34b75a9eafbdc85526bcdf9cbc9ad211.eot") format("embedded-opentype"), 
-		 url("fonts/34b75a9eafbdc85526bcdf9cbc9ad211.woff2") format("woff2"), 
-		 url("fonts/34b75a9eafbdc85526bcdf9cbc9ad211.woff") format("woff"), 
-		 url("fonts/34b75a9eafbdc85526bcdf9cbc9ad211.ttf") format("truetype"), 
-		 url("fonts/34b75a9eafbdc85526bcdf9cbc9ad211.svg") format("svg"); 
-}
-
 * {
 	color: #fff;
 	text-transform: uppercase;
-	font-family: "AvenirNextW10";
+	font-family: 'Roboto', sans-serif;
 }
 
 .notMob {
