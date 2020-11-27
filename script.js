@@ -9,8 +9,10 @@ function ready() {
 	var range = document.getElementById('range');
 	var labels = document.getElementsByClassName('label');
 	var mainButton = document.getElementById('mainButton');
+	var priceSliderDiv = document.getElementById('price');
+	var priceSliderText = document.getElementById('priceText');
 	makeLabels(labels,range.max);
-	range.oninput = rangeChange.bind(range,labels,mainButton);
+	range.oninput = rangeChange.bind(range,labels,mainButton,priceSliderDiv,priceSliderText);
 	mainButton.onclick = mainButtonClick.bind(range);
 
 	var moreInfoBlock = document.getElementById('moreInfo');
@@ -22,10 +24,11 @@ function ready() {
 	form.onsubmit = submitForm.bind(form);
 }
 
-function rangeChange(labels,mainButton) {
+function rangeChange(labels,mainButton,priceSliderDiv,priceSliderText) {
 	changeRangeColor(this);
 	updateLabelsClass(labels,parseInt(this.value),parseInt(this.max));
 	updateButtonDisplay(this.value,mainButton);
+	movePriceSlider(parseInt(this.value),parseInt(this.max),priceSliderDiv,priceSliderText);
 }
 
 function changeRangeColor(rangeObj) {
@@ -143,4 +146,29 @@ function submitForm() {
     	}
     };
 	return false;
+}
+
+function movePriceSlider(pos,max,priceSliderDiv,priceSliderText) {
+	var temp = -(pos/max)*200; // исправление бага праузерского бегунка
+	if (pos >= 100) {
+		if (priceSliderDiv.style.display != 'initial') {
+			priceSliderDiv.style.display = 'initial';
+		}
+		priceSliderDiv.style.left = Math.round(pos/max*100*precision+temp)/precision+"%";
+		if (pos+diff < 720) {
+			priceSliderText.innerHTML = "<720 тыс";
+		}
+		else if (pos+diff < 1000) {
+			priceSliderText.innerHTML = (pos+diff)+" тыс";
+		}
+		else if (pos+diff < 17000) {
+			priceSliderText.innerHTML = (pos+diff)/1000+" млн";
+		}
+		else {
+			priceSliderText.innerHTML = ">17 млн";
+		}
+	}
+	else {
+		priceSliderDiv.style.display = 'none';
+	}
 }
