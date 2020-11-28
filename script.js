@@ -39,18 +39,10 @@ function changeRangeColor(rangeObj) {
 		rangeObj.style.background = 'linear-gradient(to right, #aaa 0%, #aaa '+ratio+'%, #fff '+ratio+'%, #fff 100%)';
 		rangeObj.style.setProperty('--slider-color', "#654321");
 	}
-	else if (rangeObj.value < 17000-diff) {
-		rangeObj.style.background = 'linear-gradient(to right, '+
-			'#aaa 0%, #aaa '+rat720+'%, '+
-			'#00b160 '+rat720+'%, #00b160 '+ratio+'%, '+
-			'#fff '+ratio+'%, #fff 100%)';
-		rangeObj.style.setProperty('--slider-color', "#008c4c");
-	}
 	else {
 		rangeObj.style.background = 'linear-gradient(to right, '+
 			'#aaa 0%, #aaa '+rat720+'%, '+
-			'#00b160 '+rat720+'%, #00b160 '+rat17000+'%, '+
-			'#fc0078 '+rat17000+'%, #fc0078 '+ratio+'%, '+
+			'#fc0078 '+rat720+'%, #fc0078 '+ratio+'%, '+
 			'#fff '+ratio+'%, #fff 100%)';
 		rangeObj.style.setProperty('--slider-color', "#bf005b");
 	}
@@ -132,7 +124,7 @@ function submitForm() {
 
 	var body = 'name=' + encodeURIComponent(name) + '&phone=' + encodeURIComponent(phone);
 
-	xhr.open("POST", '/mail.php', true);
+	xhr.open("POST", 'https://clevergrad.romanpavlov.com/mail.php', true);
 	xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
 	xhr.send(body);
@@ -142,6 +134,7 @@ function submitForm() {
     		alert("Заявка успешно отправлена, мы в ближайшее время свяжемся с Вами!");
     	}
     	else {
+    		console.log(xhr.responseText);
     		alert("К сожалению, произошла ошибка на сервере :( Вы можете связаться с нами по номеру: +78124216869");
     	}
     };

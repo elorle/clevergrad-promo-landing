@@ -34,16 +34,22 @@ body {
 #content h1 {
 	font-size: 5.7vw;
 	font-weight: 700;
+	margin-bottom: 0.3em;
 }
 
 #content h1 span {
 	color: #fc0078;
 }
 
+#content p {
+	padding-bottom: 1.2em;
+	font-size: 2.9vw;
+}
+
 #content button {
 	display: none;
 	font-size: 110%;
-	background: #00b160;
+	background: #fc0078;
 	border-radius: 0.1em;
 	padding: 0.5em;
 	border: none;
@@ -61,7 +67,7 @@ body {
 
 #moreInfoButton {
 	text-transform: initial;
-	background: #00b160;
+	background: #fc0078;
 	border-radius: 4em;
 	opacity: 0.8;
 	padding: 1.5em;
@@ -69,8 +75,9 @@ body {
 	text-align: center;
 	transition: all 0.5s ease-in-out;
 	position: absolute;
-	right: 1em;
-	bottom: 1em;
+	left: 50%;
+	transform: translate(-50%,0);
+	bottom: 6em;
 }
 
 #moreInfoButton img {
@@ -91,12 +98,12 @@ body {
 #rangeContainer {
 	width: 100%;
 	position: relative;
-	top: 2em;
+	top: 1.35em;
 }
 
 #price {
 	position: absolute;
-	bottom: 26px;
+	bottom: 35px;
 	display: none;
 }
 
@@ -105,6 +112,7 @@ body {
 	right: 37%;
 	width: 5em;
 	text-transform: lowercase;
+	font-size: 3.1vw;
 }
 
 #triangle {
@@ -114,6 +122,7 @@ body {
 	border-right: 10px solid transparent;
 	border-top: 15px solid #fc0078;
 	border-radius: 4px;
+	margin-top: 2px;
 }
 
 #range {
@@ -244,7 +253,7 @@ input:focus{
 
 #moreInfo button {
 	padding: 1em;
-	background: #00b160;
+	background: #fc0078;
 	border: 0;
 	border-radius: 0.1em;
 	font-size: 1.25em;
@@ -276,13 +285,36 @@ input:focus{
 		font-size: 5.1vw;
 	}
 
+	#content p {
+		font-size: 2.5vw;
+	}
+
 	#content button {
 		font-size: 140%;
-		margin-bottom: -8em;
+		margin-bottom: -7em;
 		width: initial;
+	}
+
+	#rangeContainer {
+		top: 0.35em;
 	}
 
 	#triangle {
 		margin: 6px 0 8px 0;
+	}
+
+	#priceText {
+		font-size: initial;
+	}
+
+	#price {
+		bottom: 35px;
+	}
+
+	#moreInfoButton {
+		left: initial;
+		transform: initial;
+		right: 1.5em;
+		bottom: 1.5em;
 	}
 }

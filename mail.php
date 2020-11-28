@@ -9,7 +9,8 @@ $message = implode("\r\n", $_POST);
 $res = mail($to, $subject, $message, $headers);
 
 if ($res) {
-    return "success";
+    echo "success";
+    return;
 }
 
-return "error";
+echo "error";
