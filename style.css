@@ -282,7 +282,11 @@ input:focus{
 		top: 2em;
 		left: 2em;
 		transform: initial;
-		width: 25vw;
+		width: 20vw;
+	}
+
+	#content h1 {
+		font-size: 6.5vw;
 	}
 
 	#moreInfoButton {
