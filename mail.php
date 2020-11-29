@@ -1,8 +1,8 @@
 <?php
 
-$to      = 'm@elorle.ru';
-$subject = 'Обратный звонок с лендинга';
-$headers = 'From: mail-from@gmail.com'."\r\n".'X-Mailer: PHP/'.phpversion();
+$to      = 'sales@clevergrad.ru';
+$subject = 'Обратный звонок с gorodam.net';
+$headers = 'From: no-reply@gorodam.net'."\r\n".'X-Mailer: PHP/'.phpversion();
 
 $message = implode("\r\n", $_POST);
 
