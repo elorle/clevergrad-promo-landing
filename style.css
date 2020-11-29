@@ -31,8 +31,17 @@ body {
 	text-align: center;
 }
 
+#logo {
+	display: none;
+	position: absolute;
+	width: 40vw;
+	top: 1em;
+	left: 50%;
+	transform: translate(-50%, 0);
+}
+
 #content h1 {
-	font-size: 5.7vw;
+	font-size: 9.5vw;
 	font-weight: 700;
 	margin-bottom: 0.3em;
 }
@@ -66,33 +75,19 @@ body {
 }
 
 #moreInfoButton {
-	text-transform: initial;
+	font-size: 90%;
 	background: #fc0078;
-	border-radius: 4em;
-	opacity: 0.8;
-	padding: 1.5em;
+	border-radius: 0.1em;
+	padding: 0.5em;
 	border: none;
-	text-align: center;
-	transition: all 0.5s ease-in-out;
 	position: absolute;
+	bottom: 2em;
 	left: 50%;
 	transform: translate(-50%,0);
-	bottom: 6em;
-}
-
-#moreInfoButton img {
-	height: 3.5em;
-	position: relative;
-	top: 0.1em;
 }
 
 #moreInfoButton:hover {
 	cursor: pointer;
-	opacity: 1;
-}
-
-#moreInfoButton:hover img {
-	transform: rotate(30deg);
 }
 
 #rangeContainer {
@@ -270,19 +265,68 @@ input:focus{
 	width: 100%;
 }
 
+@media (orientation: portrait) {
+	#logo {
+		display: initial;
+	}
+}
+
 @media (min-width:25.063rem) { /* >=iPhone 8 plus */
 	.notMob {
 		display: initial;
 	}
 }
 
+@media (min-width:40.063rem) and (orientation: portrait) { /* >= планшет вертикальный, комп с низким разрешением */
+	#logo {
+		top: 2em;
+		left: 2em;
+		transform: initial;
+		width: 25vw;
+	}
+
+	#moreInfoButton {
+		left: initial;
+		transform: initial;
+		right: 2em;
+		bottom: 2em;
+		font-size: 110%;
+	}
+}
+
+@media (max-width:56rem) and (orientation: landscape) { /* >= телефон горизонтальный */
+	#content {
+		width: 60%;
+	}
+	#content h1 {
+		font-size: 6.5vw;
+	}
+	#content p {
+		font-size: 2vw;
+	}
+	#content button {
+		margin-bottom: -8em;
+	}
+	#moreInfoButton {
+		display: none;
+	}
+}
+
 @media (min-width:62.063rem) { /* >960px, tablet, landscape iPad, lo-res laptops ands desktops */
+	#logo {
+		display: initial;
+		top: 2em;
+		left: 2em;
+		transform: initial;
+		width: 20vw;
+	}
+
 	#content {
 		width: 70%;
 	}
 
 	#content h1 {
-		font-size: 5.1vw;
+		font-size: 8vw;
 	}
 
 	#content p {
@@ -291,7 +335,7 @@ input:focus{
 
 	#content button {
 		font-size: 140%;
-		margin-bottom: -7em;
+		margin-bottom: -18vh;
 		width: initial;
 	}
 
@@ -314,7 +358,8 @@ input:focus{
 	#moreInfoButton {
 		left: initial;
 		transform: initial;
-		right: 1.5em;
-		bottom: 1.5em;
+		right: 2em;
+		bottom: 2em;
+		font-size: 110%;
 	}
 }
