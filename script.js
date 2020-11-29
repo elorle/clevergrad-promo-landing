@@ -3,7 +3,7 @@ var precision = 100; // точность. 100 - сотые, 1000 – тысяч�
 var diff = -3000; // разность межды реальным значением бегунка и отображаемым
 var linkDiv = 17000; // если бегунок <= этого значения – firstLink, если больше – secondLink
 var firstLink = 'https://clevergrad.ru/poisk-poselkov.html?utm_source=gorodam.net&utm_medium=portal&utm_campaign=gorodam.net&maxPrice=';
-var secondLink = 'https://cleverpremium.ru/catalog/';
+var secondLink = 'https://cleverpremium.ru/catalog/?utm_source=gorodam.net&utm_medium=portal&utm_campaign=gorodamnet17mln';
 
 function ready() {
 	var range = document.getElementById('range');
