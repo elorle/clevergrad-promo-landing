@@ -318,7 +318,7 @@ input:focus{
 		top: 2em;
 		left: 2em;
 		transform: initial;
-		width: 20vw;
+		width: 12vw;
 	}
 
 	#content {
@@ -326,7 +326,7 @@ input:focus{
 	}
 
 	#content h1 {
-		font-size: 8vw;
+		font-size: 6vw;
 	}
 
 	#content p {
