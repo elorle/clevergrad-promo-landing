@@ -2,6 +2,7 @@ body, html {
 	margin: 0 auto;
 	width: 100%;
 	height: 100%;
+	max-height: 100%;
 	overflow: hidden;
 	box-sizing: border-box;
 	position: relative;
@@ -36,8 +37,7 @@ body {
 	position: absolute;
 	width: 40vw;
 	top: 1em;
-	left: 50%;
-	transform: translate(-50%, 0);
+	left: 1em;
 }
 
 #content h1 {
@@ -52,7 +52,8 @@ body {
 
 #content p {
 	padding-bottom: 1.2em;
-	font-size: 2.9vw;
+	font-size: 4.6vw;
+	text-transform: initial;
 }
 
 #content button {
@@ -281,7 +282,6 @@ input:focus{
 	#logo {
 		top: 2em;
 		left: 2em;
-		transform: initial;
 		width: 20vw;
 	}
 
@@ -306,7 +306,7 @@ input:focus{
 		font-size: 6.5vw;
 	}
 	#content p {
-		font-size: 2vw;
+		font-size: 1.9vw;
 	}
 	#content button {
 		margin-bottom: -8em;
@@ -316,12 +316,11 @@ input:focus{
 	}
 }
 
-@media (min-width:62.063rem) { /* >960px, tablet, landscape iPad, lo-res laptops ands desktops */
+@media (min-width:53.063rem) { /* >960px, tablet, landscape iPad, lo-res laptops ands desktops */
 	#logo {
 		display: initial;
 		top: 2em;
 		left: 2em;
-		transform: initial;
 		width: 12vw;
 	}
 
@@ -334,7 +333,7 @@ input:focus{
 	}
 
 	#content p {
-		font-size: 2.5vw;
+		font-size: 2.3vw;
 	}
 
 	#content button {
