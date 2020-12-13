@@ -2,17 +2,24 @@ document.addEventListener("DOMContentLoaded", ready);
 var precision = 100; // точность. 100 - сотые, 1000 – тысячные и т.д.
 var diff = -3000; // разность межды реальным значением бегунка и отображаемым
 var linkDiv = 17000; // если бегунок <= этого значения – firstLink, если больше – secondLink
-var firstLink = 'https://clevergrad.ru/poisk-poselkov.html?utm_source=gorodam.net&utm_medium=portal&utm_campaign=gorodam.net&maxPrice=';
+var firstLink = 'https://clevergrad.ru/poisk-poselkov.html?utm_source=gorodam.net&utm_medium=portal&utm_campaign=gorodam.net';
 var secondLink = 'https://cleverpremium.ru/catalog/?utm_source=gorodam.net&utm_medium=portal&utm_campaign=gorodamnet17mln';
 
 function ready() {
+	var firstTouch = { 
+		check: false
+	};
+
+	var elemIdArr = ['logo','mainButton','moreInfoButton'];
+	var elemTagInContentArr = ['p','h1'];
+
 	var range = document.getElementById('range');
 	var labels = document.getElementsByClassName('label');
 	var mainButton = document.getElementById('mainButton');
 	var priceSliderDiv = document.getElementById('price');
 	var priceSliderText = document.getElementById('priceText');
 	makeLabels(labels,range.max);
-	range.oninput = rangeChange.bind(range,labels,mainButton,priceSliderDiv,priceSliderText);
+	range.oninput = rangeChange.bind(range,labels,mainButton,priceSliderDiv,priceSliderText,firstTouch,elemIdArr,elemTagInContentArr);
 	mainButton.onclick = mainButtonClick.bind(range);
 
 	var moreInfoBlock = document.getElementById('moreInfo');
@@ -22,9 +29,15 @@ function ready() {
 	callMeButton.onclick = callMeButtonClick.bind(moreInfoBlock);
 	closeButton.onclick = closeButtonClick.bind(moreInfoBlock);
 	form.onsubmit = submitForm.bind(form);
+
+	setTimeout(arrowOut, 700, elemIdArr, elemTagInContentArr, range, mainButton);
 }
 
-function rangeChange(labels,mainButton,priceSliderDiv,priceSliderText) {
+function rangeChange(labels,mainButton,priceSliderDiv,priceSliderText,firstTouch,elemIdArr,elemTagInContentArr) {
+	if (!firstTouch.check) {
+		firstTouch.check = true;
+		arrowHide(elemIdArr,elemTagInContentArr);
+	}
 	changeRangeColor(this);
 	updateLabelsClass(labels,parseInt(this.value),parseInt(this.max));
 	updateButtonDisplay(this.value,mainButton);
@@ -33,16 +46,16 @@ function rangeChange(labels,mainButton,priceSliderDiv,priceSliderText) {
 
 function changeRangeColor(rangeObj) {
 	var ratio = Math.round(rangeObj.value/(rangeObj.max-rangeObj.min)*100*precision)/precision;
-	var rat720 = Math.round((720-diff)/(rangeObj.max-rangeObj.min)*100*precision)/precision;
+	var rat700 = Math.round((700-diff)/(rangeObj.max-rangeObj.min)*100*precision)/precision;
 	var rat17000 = Math.round((17000-diff)/(rangeObj.max-rangeObj.min)*100*precision)/precision;
-	if (rangeObj.value < 720-diff) {
+	if (rangeObj.value < 700-diff) {
 		rangeObj.style.background = 'linear-gradient(to right, #aaa 0%, #aaa '+ratio+'%, #fff '+ratio+'%, #fff 100%)';
 		rangeObj.style.setProperty('--slider-color', "#654321");
 	}
 	else {
 		rangeObj.style.background = 'linear-gradient(to right, '+
-			'#aaa 0%, #aaa '+rat720+'%, '+
-			'#fc0078 '+rat720+'%, #fc0078 '+ratio+'%, '+
+			'#aaa 0%, #aaa '+rat700+'%, '+
+			'#fc0078 '+rat700+'%, #fc0078 '+ratio+'%, '+
 			'#fff '+ratio+'%, #fff 100%)';
 		rangeObj.style.setProperty('--slider-color', "#bf005b");
 	}
@@ -82,7 +95,12 @@ function updateButtonDisplay(priceVal, mainButton) {
 function mainButtonClick() {
 	if (this.value <= linkDiv-diff) {
 		var price = (parseInt(this.value)+diff)*1000;
-		document.location.href = firstLink+price;
+		if (this.value < 3000-diff) {
+			document.location.href = firstLink+"&minPrice=600000&maxPrice="+price;
+		}
+		else {
+			document.location.href = firstLink+"&minPrice="+price+"&maxPrice=30000000";
+		}
 	}
 	else {
 		document.location.href = secondLink;
@@ -125,7 +143,7 @@ function submitForm() {
 
 	var body = 'name=' + encodeURIComponent(name) + '&phone=' + encodeURIComponent(phone);
 
-	xhr.open("POST", 'https://clevergrad.romanpavlov.com/mail.php', true);
+	xhr.open("POST", 'https://gorodam.net/mail.php', true);
 	xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
 	xhr.send(body);
@@ -149,8 +167,8 @@ function movePriceSlider(pos,max,priceSliderDiv,priceSliderText) {
 			priceSliderDiv.style.display = 'initial';
 		}
 		priceSliderDiv.style.left = Math.round(pos/max*100*precision+temp)/precision+"%";
-		if (pos+diff < 720) {
-			priceSliderText.innerHTML = "< 720 тыс";
+		if (pos+diff < 700) {
+			priceSliderText.innerHTML = "< 700 тыс";
 		}
 		else if (pos+diff < 1000) {
 			priceSliderText.innerHTML = (pos+diff)+" тыс";
@@ -165,4 +183,51 @@ function movePriceSlider(pos,max,priceSliderDiv,priceSliderText) {
 	else {
 		priceSliderDiv.style.display = 'none';
 	}
+}
+
+function arrowOut(elemIdArr,elemTagInContentArr,range,mainButton) {
+	var temp;
+	for (var i = elemIdArr.length - 1; i >= 0; i--) {
+		temp = document.getElementById(elemIdArr[i]);
+		temp.classList.add('little-opacity');
+	}
+	var content = document.getElementById('content');
+	for (i = elemTagInContentArr.length - 1; i >= 0; i--) {
+		temp = content.getElementsByTagName(elemTagInContentArr[i])[0];
+		temp.classList.add('little-opacity');
+	}
+	document.getElementById('arrow').style.display = 'initial';
+	document.getElementById('arrowLabel').style.display = 'initial';
+
+	var timerId = setInterval(function() {
+		range.value = parseInt(range.value)+400;
+		console.log(range.value);
+	}, 25, range, timerId);
+
+	setTimeout(function() {
+		clearInterval(timerId);
+		timerId = setInterval(function() {
+			range.value = parseInt(range.value)-200;
+			if (range.value <= 700-diff) {
+				range.value = 700-diff;
+				clearInterval(timerId);
+				updateButtonDisplay(range.value,mainButton);
+			}
+		}, 25, range, timerId, mainButton);
+	}, 500, range, timerId, mainButton);
+}
+
+function arrowHide(elemIdArr,elemTagInContentArr) {
+	var temp;
+	for (var i = elemIdArr.length - 1; i >= 0; i--) {
+		temp = document.getElementById(elemIdArr[i]);
+		temp.classList.remove('little-opacity');
+	}
+	var content = document.getElementById('content');
+	for (i = elemTagInContentArr.length - 1; i >= 0; i--) {
+		temp = content.getElementsByTagName(elemTagInContentArr[i])[0];
+		temp.classList.remove('little-opacity');
+	}
+	document.getElementById('arrow').style.display = 'none';
+	document.getElementById('arrowLabel').style.display = 'none';
 }

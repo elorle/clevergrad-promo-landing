@@ -266,6 +266,28 @@ input:focus{
 	width: 100%;
 }
 
+.little-opacity {
+	opacity: 0.3;
+}
+
+#arrow {
+	display: none;
+	position: absolute;
+	height: 24vh;
+	top: calc(50% - 6em);
+	left: 12%;
+	transform: translate(-50%,-50%) rotate(23deg);
+}
+
+#arrowLabel {
+	display: none;
+	position: absolute;
+	top: calc(27vh - 4em);
+	left: 14%;
+	width: 100%;
+	text-align: left;
+}
+
 @media (orientation: portrait) {
 	#logo {
 		display: initial;
@@ -273,12 +295,13 @@ input:focus{
 }
 
 @media (min-width:25.063rem) { /* >=iPhone 8 plus */
-	.notMob {
-		display: initial;
-	}
 }
 
 @media (min-width:40.063rem) and (orientation: portrait) { /* >= планшет вертикальный, комп с низким разрешением */
+	.notMob {
+		display: initial;
+	}
+
 	#logo {
 		top: 2em;
 		left: 2em;
@@ -299,6 +322,10 @@ input:focus{
 }
 
 @media (max-width:56rem) and (orientation: landscape) { /* >= телефон горизонтальный */
+	.notMob {
+		display: initial;
+	}
+
 	#content {
 		width: 60%;
 	}
@@ -317,6 +344,10 @@ input:focus{
 }
 
 @media (min-width:53.063rem) { /* >960px, tablet, landscape iPad, lo-res laptops ands desktops */
+	.notMob {
+		display: initial;
+	}
+
 	#logo {
 		display: initial;
 		top: 2em;
@@ -364,5 +395,31 @@ input:focus{
 		right: 2em;
 		bottom: 2em;
 		font-size: 110%;
+	}
+
+	#arrow {
+		height: 26vh;
+		top: calc(50% - 7em);
+		left: 14%;
+	}
+
+	#arrowLabel {
+		left: 14.5%;
+		top: calc(50% - 30vh);
+		text-align: left;
+		transform: initial;
+		font-size: 0.85vw;
+		width: 100%;
+	}
+}
+
+@media (min-width:1365px) {
+	#arrow {
+		height: 31vh;
+		top: calc(50% - 6em);
+	}
+
+	#arrowLabel {
+		top: calc(50% - 30.2vh);
 	}
 }
