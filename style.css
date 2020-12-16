@@ -246,14 +246,12 @@ body {
 
 #quiz form button {
 	margin-bottom: 3em;
-	opacity: 0.9;
-	color:#ddd;
+	opacity: 0.8;
 }
 
 
 #quiz form button:hover {
-	opacity: 0.9;
-	color: #fff;
+	opacity: 1.0;
 }
 
 input[type=text] {
@@ -333,7 +331,6 @@ input:focus{
 	-webkit-transform: translateY(-50%);
 			transform: translateY(-50%);
 	width: 20px;
-	opacity: 0.3;
 	-webkit-transition: 0.2s ease;
 	transition: 0.2s ease;
 }
