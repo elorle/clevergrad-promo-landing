@@ -233,14 +233,22 @@ body {
 
 #quiz form {
 	position: relative;
-	width: 80%;
+	width: 70%;
 	height: 100%;
-	padding: 0 10%;
+	padding: 0 15%;
 	overflow: scroll;
 }
 
 #quiz form button {
-	margin-bottom: 1em;
+	margin-bottom: 3em;
+	opacity: 0.9;
+	color:#ddd;
+}
+
+
+#quiz form button:hover {
+	opacity: 0.9;
+	color: #fff;
 }
 
 input[type=text] {
