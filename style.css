@@ -239,6 +239,11 @@ body {
 	overflow: scroll;
 }
 
+#quiz form h1 {
+	text-align: center;
+	margin-top: 1.8em;
+}
+
 #quiz form button {
 	margin-bottom: 3em;
 	opacity: 0.9;
