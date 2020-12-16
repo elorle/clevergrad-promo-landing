@@ -419,6 +419,7 @@ input:focus{
 
 h1 {
 	font-size: 14px;
+	padding: 0 2em;
 }
 
 #moreInfo button,
@@ -572,6 +573,7 @@ h1 {
 
 	h1 {
 		font-size: 2.1vw;
+		padding: 0;
 	}
 
 	#logo {
