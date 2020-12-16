@@ -10,7 +10,7 @@ function ready() {
 		check: false
 	};
 
-	var elemIdArr = ['logo','mainButton','moreInfoButton'];
+	var elemIdArr = ['logo','mainButton','moreInfoButton','quizButton'];
 	var elemTagInContentArr = ['p','h1'];
 
 	var range = document.getElementById('range');
@@ -29,6 +29,24 @@ function ready() {
 	callMeButton.onclick = callMeButtonClick.bind(moreInfoBlock);
 	closeButton.onclick = closeButtonClick.bind(moreInfoBlock);
 	form.onsubmit = submitForm.bind(form);
+
+	var quizBlock = document.getElementById('quiz');
+	var quizOptions = document.getElementsByClassName('select-box__option');
+	var form2 = quizBlock.getElementsByTagName('form')[0];
+	var quizButton = document.getElementById('quizButton');
+	var closeQuizButton = document.getElementById('close2');
+	var answers = new Object();
+	answers.type = 0;
+	answers.square = 0;
+	answers.direction = 0;
+	answers.landscape = 0;
+	answers.budget = 0;
+	quizButton.onclick = callMeButtonClick.bind(quizBlock);
+	closeQuizButton.onclick = closeButtonClick.bind(quizBlock);
+	form2.onsubmit = submitQuizForm.bind(form2,answers);
+	for (let i = quizOptions.length - 1; i >= 0; i--) {
+		quizOptions[i].onclick = quizOptionClick.bind(quizOptions[i].getAttribute('for'),answers);
+	}
 
 	setTimeout(arrowOut, 700, elemIdArr, elemTagInContentArr, range, mainButton);
 }
@@ -121,6 +139,81 @@ function closeButtonClick() {
 	}.bind(this), 500);
 }
 
+function submitQuizForm(answers) {
+	var name = this.querySelector("input[name=name]").value;
+	var phone = this.querySelector("input[name=phone]").value;
+	var allow = this.querySelector("input[name=dataProcessing]");
+	if (answers.type == 0) {
+		alert('Пожалуйста, выберите, вы хотите участок с домом или без');
+		return false;
+	}
+	if (answers.square == 0) {
+		alert('Пожалуйста, выберите желаемую площадь участка');
+		return false;
+	}
+	if (answers.direction == 0) {
+		alert('Пожалуйста, выберите, в какой части города вы хотели бы жить');
+		return false;
+	}
+	if (answers.landscape == 0) {
+		alert('Пожалуйста, выберите, какой ландшафт вы хотели бы');
+		return false;
+	}
+	if (answers.budget == 0) {
+		alert('Пожалуйста, выберите бюджет');
+		return false;
+	}
+	if (name == '') {
+		alert('Пожалуйста, представьтесь');
+		return false;
+	}
+	if (phone == '') {
+		alert('Пожалуйста, введите номер телефона');
+		return false;
+	}
+	if (!allow.checked) {
+		alert('Пожалуйста, согласитесь на обработку данных. Обещаем, Ваши данные НЕ будут переданы третьим лицам!');
+		return false;
+	}
+	var additionalElems = document.getElementsByName("additional");
+	var additional = "Доп. важная информация: ";
+	for (var i = additionalElems.length - 1; i >= 0; i--) {
+		if (additionalElems[i].checked) {
+			additional += additionalElems[i].value+" | ";
+		}
+	}
+	var xhr = new XMLHttpRequest();
+
+	console.log(name,phone,answers.type,answers.square,answers.direction,answers.landscape,answers.budget,additional);
+	name = encodeURIComponent("Имя: "+name);
+	phone = encodeURIComponent("Телефон: "+phone);
+	answers.type = encodeURIComponent("Тип: "+answers.type);
+	answers.square = encodeURIComponent("Площадь: "+answers.square);
+	answers.direction = encodeURIComponent("Часть города: "+answers.direction);
+	answers.landscape = encodeURIComponent("Ландшафт: "+answers.landscape);
+	answers.budget = encodeURIComponent("Бюджет: "+answers.budget);
+	additional = encodeURIComponent("Доп. важности: "+additional);
+
+	var body = 'name=' + name + '&phone=' + phone + '&type'+answers.type+'&square'+answers.square+'&direction'+answers.direction+'&landscape'+answers.landscape+'&budget'+answers.budget+'&additional'+additional;
+	console.log(body);
+
+	xhr.open("POST", 'https://gorodam.net/mail.php', true);
+	xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+	xhr.send(body);
+
+	xhr.onload = function() {
+		if (xhr.responseText == 'success') {
+			alert("Заявка успешно отправлена, мы в ближайшее время свяжемся с Вами!");
+		}
+		else {
+			console.log(xhr.responseText);
+			alert("К сожалению, произошла ошибка на сервере :( Вы можете связаться с нами по номеру: +78124216869");
+		}
+	};
+	return false;
+}
+
 function submitForm() {
 	var inputs = this.getElementsByTagName('input');
 	var name,phone,allow;
@@ -148,15 +241,15 @@ function submitForm() {
 
 	xhr.send(body);
 
-    xhr.onload = function() {
-    	if (xhr.responseText == 'success') {
-    		alert("Заявка успешно отправлена, мы в ближайшее время свяжемся с Вами!");
-    	}
-    	else {
-    		console.log(xhr.responseText);
-    		alert("К сожалению, произошла ошибка на сервере :( Вы можете связаться с нами по номеру: +78124216869");
-    	}
-    };
+		xhr.onload = function() {
+			if (xhr.responseText == 'success') {
+				alert("Заявка успешно отправлена, мы в ближайшее время свяжемся с Вами!");
+			}
+			else {
+				console.log(xhr.responseText);
+				alert("К сожалению, произошла ошибка на сервере :( Вы можете связаться с нами по номеру: +78124216869");
+			}
+		};
 	return false;
 }
 
@@ -201,7 +294,7 @@ function arrowOut(elemIdArr,elemTagInContentArr,range,mainButton) {
 
 	var timerId = setInterval(function() {
 		range.value = parseInt(range.value)+400;
-		console.log(range.value);
+		// console.log(range.value);
 	}, 25, range, timerId);
 
 	setTimeout(function() {
@@ -230,4 +323,8 @@ function arrowHide(elemIdArr,elemTagInContentArr) {
 	}
 	document.getElementById('arrow').style.display = 'none';
 	document.getElementById('arrowLabel').style.display = 'none';
+}
+
+function quizOptionClick(answers) {
+	answers[document.getElementById(this).name] = document.getElementById(this).value;
 }

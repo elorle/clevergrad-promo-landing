@@ -75,8 +75,9 @@ body {
 	cursor: pointer;
 }
 
-#moreInfoButton {
-	font-size: 90%;
+#moreInfoButton,
+#quizButton {
+	font-size: 83%;
 	background: #fc0078;
 	border-radius: 0.1em;
 	padding: 0.5em;
@@ -87,7 +88,13 @@ body {
 	transform: translate(-50%,0);
 }
 
-#moreInfoButton:hover {
+#quizButton {
+	bottom: initial;
+	top: 2em;
+}
+
+#moreInfoButton:hover,
+#quizButton:hover {
 	cursor: pointer;
 }
 
@@ -187,7 +194,8 @@ body {
 	text-transform: lowercase;
 }
 
-#moreInfo {
+#moreInfo,
+#quiz {
 	position: absolute;
 	width: 100%;
 	height: 100%;
@@ -199,7 +207,8 @@ body {
 	transition: all 0.5s ease-in-out;
 }
 
-#close {
+#close,
+#close2 {
 	position: absolute;
 	right: 0.5em;
 	top: 0.5em;
@@ -207,18 +216,31 @@ body {
 	transition: all 0.5s ease-in-out;
 }
 
-#close:hover {
+#close:hover,
+#close2:hover {
 	color: red;
 	cursor: pointer;
 	transform: rotate(360deg);
 }
 
-form {
+#moreInfo form {
 	position: absolute;
 	width: 80%;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%,-50%);
+}
+
+#quiz form {
+	position: relative;
+	width: 80%;
+	height: 100%;
+	padding: 0 10%;
+	overflow: scroll;
+}
+
+#quiz form button {
+	margin-bottom: 1em;
 }
 
 input[type=text] {
@@ -230,24 +252,161 @@ input[type=text] {
 
 #moreInfo input,
 #moreInfo button,
-#moreInfo label {
+#moreInfo label[for=dataProcessing],
+#quiz input,
+#quiz button,
+#quiz label[for=dataProcessing] {
 	margin-top: 2em;
 	padding: 0.5em 1em;
 	box-sizing: border-box;
 }
 
 input:focus{
-    outline: none;
+		outline: none;
 }
 
-#moreInfo label {
+#moreInfo label[for=dataProcessing] {
 	padding-left: 0.25em;
 	font-style: italic;
 	color: #ddd;
 	text-transform: lowercase;
 }
 
-#moreInfo button {
+/*select {
+	background: none;
+	border: none;
+	border-radius: 5px;
+	color: white;
+	text-shadow: 0 0 4px rgba(0, 0, 0, 0.8);
+	-webkit-appearance: none;
+	width: 100%;
+	font-size: 1.5em;
+	padding: 0.5em 1em;
+	color: #bbb;
+	border-bottom: 1px solid #ccc;
+}
+*/
+.select-box {
+	position: relative;
+	display: block;
+	width: 100%;
+	margin: 0 auto;
+	font-size: 18px;
+	color: #60666d;
+	margin-top: 2em;
+}
+.select-box__current {
+	position: relative;
+	box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.1);
+	cursor: pointer;
+	outline: none;
+}
+.select-box__current:focus + .select-box__list {
+	opacity: 1;
+	-webkit-animation-name: none;
+			animation-name: none;
+}
+.select-box__current:focus + .select-box__list .select-box__option {
+	cursor: pointer;
+}
+.select-box__current:focus .select-box__icon {
+	-webkit-transform: translateY(-50%) rotate(180deg);
+			transform: translateY(-50%) rotate(180deg);
+}
+.select-box__icon {
+	position: absolute;
+	top: 50%;
+	right: 15px;
+	-webkit-transform: translateY(-50%);
+			transform: translateY(-50%);
+	width: 20px;
+	opacity: 0.3;
+	-webkit-transition: 0.2s ease;
+	transition: 0.2s ease;
+}
+.select-box__value {
+	display: -webkit-box;
+	display: flex;
+}
+.select-box__input {
+	display: none;
+}
+.select-box__input:checked + .select-box__input-text {
+	display: block;
+}
+.select-box__input-text {
+	display: none;
+	width: 100%;
+	margin: 0;
+	background: none;
+	border: none;
+	text-shadow: 0 0 4px rgba(0, 0, 0, 0.8);
+	-webkit-appearance: none;
+	padding: 0.5em 1em;
+	color: #fff;
+	border-bottom: 1px solid #ccc;
+}
+.select-box__input-text.default {
+	color: #aaa;
+}
+.select-box__list {
+	position: absolute;
+	width: 100%;
+	padding: 0;
+	list-style: none;
+	opacity: 0;
+	background: rgba(255,255,255,0.925);
+	-webkit-animation-name: HideList;
+			animation-name: HideList;
+	-webkit-animation-duration: 0.5s;
+			animation-duration: 0.5s;
+	-webkit-animation-delay: 0.5s;
+			animation-delay: 0.5s;
+	-webkit-animation-fill-mode: forwards;
+			animation-fill-mode: forwards;
+	-webkit-animation-timing-function: step-start;
+			animation-timing-function: step-start;
+	box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.1);
+	transition: all 0.25s ease-in-out;
+	z-index: 1;
+}
+.select-box__list {
+	margin: 0;
+}
+.select-box__option {
+	display: block;
+	color: #333;
+	padding: 0.5em 1em;
+}
+.select-box__option:hover,
+.select-box__option:focus {
+	background-color: #fff;
+}
+
+@-webkit-keyframes HideList {
+	from {
+		-webkit-transform: scaleY(1);
+				transform: scaleY(1);
+	}
+	to {
+		-webkit-transform: scaleY(0);
+				transform: scaleY(0);
+	}
+}
+
+@keyframes HideList {
+	from {
+		-webkit-transform: scaleY(1);
+				transform: scaleY(1);
+	}
+	to {
+		-webkit-transform: scaleY(0);
+				transform: scaleY(0);
+	}
+}
+
+#moreInfo button,
+#quiz button {
 	padding: 1em;
 	background: #fc0078;
 	border: 0;
@@ -256,13 +415,16 @@ input:focus{
 	transition: background 0.5s ease-in-out;
 }
 
-#moreInfo button:hover {
+#moreInfo button:hover,
+#quiz button:hover {
 	cursor: pointer;
 	background: rgb(40, 117, 180);
 }
 
 #moreInfo input[type=text],
-#moreInfo button {
+#moreInfo button,
+#quiz input[type=text],
+#quiz button {
 	width: 100%;
 }
 
@@ -288,10 +450,24 @@ input:focus{
 	text-align: left;
 }
 
+.additionals {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+}
+
+.additionals h2 {
+	padding: 0.5em 1em;
+	font-size: 1em;
+	font-weight: normal;
+	width: 100%;
+	text-align: center;
+}
+
 @media (orientation: portrait) {
-	#logo {
+	/*#logo {
 		display: initial;
-	}
+	}*/
 }
 
 @media (min-width:25.063rem) { /* >=iPhone 8 plus */
@@ -302,14 +478,23 @@ input:focus{
 		display: initial;
 	}
 
-	#logo {
-		top: 2em;
-		left: 2em;
-		width: 20vw;
-	}
-
 	#content h1 {
 		font-size: 6.5vw;
+	}
+
+	#logo {
+		display: block;
+		top: 2em;
+		left: 2em;
+		width: 12vw;
+	}
+
+	#quizButton {
+		top: 2em;
+		left: initial;
+		right: 2em;
+		font-size: 110%;
+		transform: initial;
 	}
 
 	#moreInfoButton {
@@ -338,7 +523,8 @@ input:focus{
 	#content button {
 		margin-bottom: -8em;
 	}
-	#moreInfoButton {
+	#moreInfoButton,
+	#quizButton {
 		display: none;
 	}
 }
@@ -389,6 +575,14 @@ input:focus{
 		bottom: 35px;
 	}
 
+	#quizButton {
+		top: 2em;
+		left: initial;
+		right: 2em;
+		font-size: 110%;
+		transform: initial;
+	}
+
 	#moreInfoButton {
 		left: initial;
 		transform: initial;
@@ -410,6 +604,13 @@ input:focus{
 		transform: initial;
 		font-size: 0.85vw;
 		width: 100%;
+	}
+
+	.select-box__input-text,
+	.select-box__option,
+	.additionals h2,
+	.select-box__input-text.default {
+		font-size: 1.5em;
 	}
 }
 

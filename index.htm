@@ -7,8 +7,8 @@
 	<meta name="description" content="Дома премиум-класса и участки с высокой степенью готовности в Ленинградской области">
 	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 
-	<link rel="stylesheet" type="text/css" href="style.css?ver=20201204_6">
-	<script src="script.js?ver=20201207"></script>
+	<link rel="stylesheet" type="text/css" href="style.css?ver=20201216_1">
+	<script src="script.js?ver=20201216_1"></script>
 
 	<link rel="preconnect" href="https://fonts.gstatic.com"> 
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
@@ -16,16 +16,16 @@
 <body>
 	<!-- Yandex.Metrika counter -->
 	<script type="text/javascript" >
-	   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-	   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-	   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+		 (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+		 m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+		 (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
-	   ym(70027594, "init", {
-	        clickmap:true,
-	        trackLinks:true,
-	        accurateTrackBounce:true,
-	        webvisor:true
-	   });
+		 ym(70027594, "init", {
+					clickmap:true,
+					trackLinks:true,
+					accurateTrackBounce:true,
+					webvisor:true
+		 });
 	</script>
 	<noscript><div><img src="https://mc.yandex.ru/watch/70027594" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 	<!-- /Yandex.Metrika counter -->
@@ -116,6 +116,7 @@
 		<button id="mainButton">Показать объекты</button>
 	</div>
 	<button id="moreInfoButton">Заказать звонок</button>
+	<button id="quizButton">Помочь с выбором</button>
 	<div id="moreInfo">
 		<div id="close">✕</div>
 		<form>
@@ -125,6 +126,186 @@
 			<label for="dataProcessing">согласие на обработку данных</label>
 			<button type="submit">Позвоните мне!</button>
 		</form>
+	</div>
+	<div id="quiz">
+		<form>
+			<div class="select-box">
+				<div class="select-box__current" tabindex="1">
+					<div class="select-box__value">
+						<input class="select-box__input" type="radio" id="type-0" value="0" name="type" checked="checked"/>
+						<p class="select-box__input-text default">Вы ищите участок или готовый дом с участком?</p>
+					</div>
+					<div class="select-box__value">
+						<input class="select-box__input" type="radio" id="type-1" value="участок" name="type"/>
+						<p class="select-box__input-text">Хочу участок</p>
+					</div>
+					<div class="select-box__value">
+						<input class="select-box__input" type="radio" id="type-2" value="участок с домом" name="type"/>
+						<p class="select-box__input-text">Хочу участок с домом</p>
+					</div>
+					<div class="select-box__value">
+						<input class="select-box__input" type="radio" id="type-3" value="ещё не знаю" name="type"/>
+						<p class="select-box__input-text">Хочу участок с домом или без</p>
+					</div>
+					<img class="select-box__icon" src="arrow-down.svg" alt="Arrow Icon" aria-hidden="true"/>
+				</div>
+				<ul class="select-box__list">
+					<li>
+						<label class="select-box__option" for="type-1" aria-hidden="aria-hidden">участок</label>
+					</li>
+					<li>
+						<label class="select-box__option" for="type-2" aria-hidden="aria-hidden">участок с домом</label>
+					</li>
+					<li>
+						<label class="select-box__option" for="type-3" aria-hidden="aria-hidden">ещё не знаю</label>
+					</li>
+				</ul>
+			</div>
+			<div class="select-box">
+				<div class="select-box__current" tabindex="1">
+					<div class="select-box__value">
+						<input class="select-box__input" type="radio" id="square-0" value="0" name="square" checked="checked"/>
+						<p class="select-box__input-text default">Какая площадь участка вам интересна?</p>
+					</div>
+					<div class="select-box__value">
+						<input class="select-box__input" type="radio" id="square-1" value="до 10 соток" name="square"/>
+						<p class="select-box__input-text">с площадью до 10 соток</p>
+					</div>
+					<div class="select-box__value">
+						<input class="select-box__input" type="radio" id="square-2" value="от 10 до 15 соток" name="square"/>
+						<p class="select-box__input-text">с площадью 10-15 соток</p>
+					</div>
+					<div class="select-box__value">
+						<input class="select-box__input" type="radio" id="square-3" value="свыше 15 соток" name="square"/>
+						<p class="select-box__input-text">с площадью свыше 15 соток</p>
+					</div>
+					<img class="select-box__icon" src="arrow-down.svg" alt="Arrow Icon" aria-hidden="true"/>
+				</div>
+				<ul class="select-box__list">
+					<li>
+						<label class="select-box__option" for="square-1" aria-hidden="aria-hidden">до 10 соток</label>
+					</li>
+					<li>
+						<label class="select-box__option" for="square-2" aria-hidden="aria-hidden">от 10 до 15 соток</label>
+					</li>
+					<li>
+						<label class="select-box__option" for="square-3" aria-hidden="aria-hidden">свыше 15 соток</label>
+					</li>
+				</ul>
+			</div>
+			<div class="select-box">
+				<div class="select-box__current" tabindex="1">
+					<div class="select-box__value">
+						<input class="select-box__input" type="radio" id="direction-0" value="0" name="direction" checked="checked"/>
+						<p class="select-box__input-text default">Какое направление вам бы хотелось?</p>
+					</div>
+					<div class="select-box__value">
+						<input class="select-box__input" type="radio" id="direction-1" value="север" name="direction"/>
+						<p class="select-box__input-text">на севере</p>
+					</div>
+					<div class="select-box__value">
+						<input class="select-box__input" type="radio" id="direction-2" value="юг" name="direction"/>
+						<p class="select-box__input-text">на юге</p>
+					</div>
+					<img class="select-box__icon" src="arrow-down.svg" alt="Arrow Icon" aria-hidden="true"/>
+				</div>
+				<ul class="select-box__list">
+					<li>
+						<label class="select-box__option" for="direction-1" aria-hidden="aria-hidden">север</label>
+					</li>
+					<li>
+						<label class="select-box__option" for="direction-2" aria-hidden="aria-hidden">юг</label>
+					</li>
+				</ul>
+			</div>
+			<div class="select-box">
+				<div class="select-box__current" tabindex="1">
+					<div class="select-box__value">
+						<input class="select-box__input" type="radio" id="landscape-0" value="0" name="landscape" checked="checked"/>
+						<p class="select-box__input-text default">Какой ландшафт вокруг хотели бы?</p>
+					</div>
+					<div class="select-box__value">
+						<input class="select-box__input" type="radio" id="landscape-1" value="первая линия озера" name="landscape"/>
+						<p class="select-box__input-text">на первой линии озера</p>
+					</div>
+					<div class="select-box__value">
+						<input class="select-box__input" type="radio" id="landscape-2" value="лес" name="landscape"/>
+						<p class="select-box__input-text">рядом с лесом</p>
+					</div>
+					<div class="select-box__value">
+						<input class="select-box__input" type="radio" id="landscape-3" value="всё равно" name="landscape"/>
+						<p class="select-box__input-text">всё равно какой ландшафт</p>
+					</div>
+					<img class="select-box__icon" src="arrow-down.svg" alt="Arrow Icon" aria-hidden="true"/>
+				</div>
+				<ul class="select-box__list">
+					<li>
+						<label class="select-box__option" for="landscape-1" aria-hidden="aria-hidden">первая линия озера</label>
+					</li>
+					<li>
+						<label class="select-box__option" for="landscape-2" aria-hidden="aria-hidden">лес</label>
+					</li>
+					<li>
+						<label class="select-box__option" for="landscape-3" aria-hidden="aria-hidden">всё равно</label>
+					</li>
+				</ul>
+			</div>
+			<div class="select-box">
+				<div class="select-box__current" tabindex="1">
+					<div class="select-box__value">
+						<input class="select-box__input" type="radio" id="budget-0" value="0" name="budget" checked="checked"/>
+						<p class="select-box__input-text default">Какой бюджет вы готовы вложить?</p>
+					</div>
+					<div class="select-box__value">
+						<input class="select-box__input" type="radio" id="budget-1" value="до 1,5 млн.руб." name="budget"/>
+						<p class="select-box__input-text">за менее чем 1,5 млн.руб.</p>
+					</div>
+					<div class="select-box__value">
+						<input class="select-box__input" type="radio" id="budget-2" value="до 5 млн.руб." name="budget"/>
+						<p class="select-box__input-text">за менее чем 5 млн.руб.</p>
+					</div>
+					<div class="select-box__value">
+						<input class="select-box__input" type="radio" id="budget-3" value="свыше 5 млн.руб." name="budget"/>
+						<p class="select-box__input-text">за 5 млн.руб. или дороже</p>
+					</div>
+					<img class="select-box__icon" src="arrow-down.svg" alt="Arrow Icon" aria-hidden="true"/>
+				</div>
+				<ul class="select-box__list">
+					<li>
+						<label class="select-box__option" for="budget-1" aria-hidden="aria-hidden">до 1,5 млн.руб.</label>
+					</li>
+					<li>
+						<label class="select-box__option" for="budget-2" aria-hidden="aria-hidden">до 5 млн.руб.</label>
+					</li>
+					<li>
+						<label class="select-box__option" for="budget-3" aria-hidden="aria-hidden">свыше 5 млн.руб.</label>
+					</li>
+				</ul>
+			</div>
+			<div class="additionals">
+				<h2>Что для Вас является обязательным при выборе?</h2>
+				<div class="additional">
+					<label><input type="checkbox" name="additional" value="наличие водопровода"> наличие водопровода</label>
+				</div>
+				<div class="additional">
+					<label><input type="checkbox" name="additional" value="наличие электричества"> наличие электричества</label>
+				</div>
+				<div class="additional">
+					<label><input type="checkbox" name="additional" value="наличие газа"> наличие газа</label>
+				</div>
+				<div class="additional">
+					<label><input type="checkbox" name="additional" value="развитая инфраструктура"> развитая инфраструктура</label>
+				</div>
+				<div class="additional">
+					<label><input type="checkbox" name="additional" value="близость к городу"> близость к городу</label>
+				</div>
+			</div>
+			<input type="text" name="name" placeholder="Ваше имя">
+			<input type="text" name="phone" placeholder="Телефон">
+			<label><input type="checkbox" id="dataProcessing" name="dataProcessing"> согласие на обработку данных</label>
+			<button type="submit">Позвоните мне!</button>
+		</form>
+		<div id="close2">✕</div>
 	</div>
 	<p id="arrowLabel"><span class="notMob">передвигайте ползунок, что бы </span>выбрать бюджет<span class="notMob"> Вашей будущей загородной недвижимости</span></p>
 	<img id="arrow" src="arrow-white.png">
