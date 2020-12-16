@@ -345,6 +345,7 @@ input:focus{
 	padding: 0.5em 1em;
 	color: #fff;
 	border-bottom: 1px solid #ccc;
+	text-transform: initial;
 }
 .select-box__input-text.default {
 	color: #aaa;
@@ -377,6 +378,7 @@ input:focus{
 	display: block;
 	color: #333;
 	padding: 0.5em 1em;
+	text-transform: initial;
 }
 .select-box__option:hover,
 .select-box__option:focus {
@@ -462,6 +464,11 @@ input:focus{
 	font-weight: normal;
 	width: 100%;
 	text-align: center;
+	text-transform: initial;
+}
+
+.additional {
+	padding: 0 0.5em;
 }
 
 @media (orientation: portrait) {
@@ -503,6 +510,12 @@ input:focus{
 		right: 2em;
 		bottom: 2em;
 		font-size: 110%;
+	}
+}
+
+@media (max-width:56rem) {
+	.additionals {
+		display: block;
 	}
 }
 

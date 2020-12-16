@@ -49,6 +49,18 @@ function ready() {
 	}
 
 	setTimeout(arrowOut, 700, elemIdArr, elemTagInContentArr, range, mainButton);
+
+	setTimeout(arrowHideAfterFirstTouch, 700, firstTouch, elemIdArr, elemTagInContentArr);
+}
+
+function arrowHideAfterFirstTouch(firstTouch, elemIdArr, elemTagInContentArr) {
+	document.body.onclick = function() {
+		if (!firstTouch.check) {
+			firstTouch.check = true;
+			arrowHide(elemIdArr,elemTagInContentArr);
+		}
+		this.onclick = null;
+	};
 }
 
 function rangeChange(labels,mainButton,priceSliderDiv,priceSliderText,firstTouch,elemIdArr,elemTagInContentArr) {
@@ -184,7 +196,6 @@ function submitQuizForm(answers) {
 	}
 	var xhr = new XMLHttpRequest();
 
-	console.log(name,phone,answers.type,answers.square,answers.direction,answers.landscape,answers.budget,additional);
 	name = encodeURIComponent("Имя: "+name);
 	phone = encodeURIComponent("Телефон: "+phone);
 	answers.type = encodeURIComponent("Тип: "+answers.type);
@@ -241,15 +252,15 @@ function submitForm() {
 
 	xhr.send(body);
 
-		xhr.onload = function() {
-			if (xhr.responseText == 'success') {
-				alert("Заявка успешно отправлена, мы в ближайшее время свяжемся с Вами!");
-			}
-			else {
-				console.log(xhr.responseText);
-				alert("К сожалению, произошла ошибка на сервере :( Вы можете связаться с нами по номеру: +78124216869");
-			}
-		};
+	xhr.onload = function() {
+		if (xhr.responseText == 'success') {
+			alert("Заявка успешно отправлена, мы в ближайшее время свяжемся с Вами!");
+		}
+		else {
+			console.log(xhr.responseText);
+			alert("К сожалению, произошла ошибка на сервере :( Вы можете связаться с нами по номеру: +78124216869");
+		}
+	};
 	return false;
 }
 
