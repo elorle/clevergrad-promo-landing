@@ -10,7 +10,7 @@ function ready() {
 		check: false
 	};
 
-	var elemIdArr = ['logo','mainButton','moreInfoButton','quizButton'];
+	var elemIdArr = ['logo','mainButton','moreInfoButton'];
 	var elemTagInContentArr = ['p','h1'];
 
 	var range = document.getElementById('range');
