@@ -241,7 +241,7 @@ body {
 
 #quiz form h1 {
 	text-align: center;
-	margin-top: 1.8em;
+	margin-top: 1.5em;
 }
 
 #quiz form button {
@@ -355,7 +355,7 @@ input:focus{
 	border: none;
 	text-shadow: 0 0 4px rgba(0, 0, 0, 0.8);
 	-webkit-appearance: none;
-	padding: 0.5em 1em;
+	padding: 0.5em 3em 0.5em 1em;
 	color: #fff;
 	border-bottom: 1px solid #ccc;
 	text-transform: initial;
@@ -428,18 +428,18 @@ input:focus{
 	border-radius: 0.1em;
 	font-size: 1.25em;
 	transition: background 0.5s ease-in-out;
+	width: 60%;
+	margin-left: 20%;
 }
 
 #moreInfo button:hover,
 #quiz button:hover {
 	cursor: pointer;
-	background: rgb(40, 117, 180);
 }
 
 #moreInfo input[type=text],
 #moreInfo button,
-#quiz input[type=text],
-#quiz button {
+#quiz input[type=text] {
 	width: 100%;
 }
 
