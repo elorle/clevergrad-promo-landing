@@ -23,6 +23,15 @@ body, html {
 	left: 1em;
 }
 
+h1 {
+	text-align: center;
+	text-transform: uppercase;
+	font-weight: normal;
+	font-size: 3.5vw;
+	margin: 0;
+	padding: 0;
+}
+
 button a {
 	text-decoration: none;
 }
@@ -133,6 +142,12 @@ button {
 		width: 50%;
 		font-size: 80%;
 	}
+	h1 {
+		width: 100vw;
+		position: relative;
+		left: -50%;
+		font-size: 2vw;
+	}
 }
 
 @media (min-width:53.063rem) { /* >960px, tablet, landscape iPad, lo-res laptops ands desktops */
@@ -141,6 +156,10 @@ button {
 		top: 2em;
 		left: 2em;
 		width: 12vw;
+	}
+
+	h1 {
+		font-size: 2vw;
 	}
 
 	form,
